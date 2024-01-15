@@ -27,6 +27,7 @@ const VideoPlayer = () => {
                         autoPlay
                         width="250px"
                         height={200}
+                        id="myVideo"
                     ></video>
                 )}
             </div>
@@ -41,6 +42,7 @@ const VideoPlayer = () => {
                     autoPlay
                     width="250px"
                     height={200}
+                    id="remoteVideo"
                 ></video>
                 {/* )} */}
             </div>

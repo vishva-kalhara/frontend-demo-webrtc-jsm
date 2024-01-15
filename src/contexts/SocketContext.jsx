@@ -16,7 +16,9 @@ const ContextProvider = ({ children }) => {
     const [name, setName] = useState("");
 
     let myVideo = useRef();
+    myVideo.current = document.getElementById("myVideo");
     let remoteVideo = useRef();
+    remoteVideo.current = document.getElementById("remoteVideo");
     const connectionRef = useRef();
 
     useEffect(() => {
@@ -26,7 +28,8 @@ const ContextProvider = ({ children }) => {
                 setStream(currentStream);
 
                 try {
-                    myVideo.current.srcObject = currentStream;
+                    if (myVideo.current)
+                        myVideo.current.srcObject = currentStream;
                 } catch (error) {
                     console.log(error);
                 }
