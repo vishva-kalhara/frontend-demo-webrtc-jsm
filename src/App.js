@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import VideoPlayer from "./components/VideoPlayer";
+import Options from "./components/Options";
+import Notificatios from "./components/Notificatios";
+import { useContext, useEffect } from "react";
+import { SocketContext } from "./contexts/SocketContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { callEnded } = useContext(SocketContext);
+
+    // useEffect(() => {
+    //     window.location.reload();
+    // }, [callEnded]);
+
+    return (
+        <>
+            <div className="container-md">
+                <VideoPlayer></VideoPlayer>
+                <Options>
+                    <Notificatios></Notificatios>
+                </Options>
+            </div>
+        </>
+    );
 }
 
 export default App;
